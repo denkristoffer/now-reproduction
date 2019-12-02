@@ -1,0 +1,9 @@
+{
+  "name": "now-reproduction",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}

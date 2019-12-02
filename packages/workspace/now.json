@@ -1,0 +1,17 @@
+{
+  "name": "reproduction",
+  "version": 2,
+  "builds": [
+    { "src": "packages/workspace/next.config.js", "use": "@now/next" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "packages/workspace/$1", "continue": true },
+    {
+      "src": "/_next/static/(?:[^/]+/pages|chunks|runtime|css|media)/.+",
+      "headers": { "cache-control": "public,max-age=31536000,immutable" },
+      "continue": true
+    },
+    { "handle": "filesystem" },
+    { "src": "packages/workspace/(.*)", "dest": "packages/workspace/$1.html" }
+  ]
+}
